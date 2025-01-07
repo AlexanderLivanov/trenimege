@@ -4,7 +4,7 @@
 require_once('system/db_config.php');
 require_once('system/header.php');
 
-if ($user->auth()) {
+if ($curr_user->auth()) {
     echo ("<script>setTimeout(function () { window.location.href = 'main.php'; });</script>");
 }
 

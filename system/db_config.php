@@ -8,7 +8,7 @@ date_default_timezone_set('Europe/Moscow');
 
 function dbConnect()
 {
-    global $user, $passwd, $db_name;
+    global $user, $db_name, $passwd;
     
     try {
         return new PDO('mysql:dbname=' . $db_name . ';host=localhost', $user, $passwd);

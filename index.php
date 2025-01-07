@@ -9,7 +9,7 @@
 <body>
     <?php
     require_once("system/header.php");
-    if ($user->auth()) {
+    if ($curr_user->auth()) {
         echo ("<script>setTimeout(function () { window.location.href = 'login.php'; });</script>");
     }
     ?>

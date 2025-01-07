@@ -6,9 +6,9 @@ require_once("system/modules/userinteract.php");
 <header>
     <h1>Треним.ЕГЭ</h1>
     <?php
-    $user = new User();
-    if($user->auth()){
-        echo("Здравствуйте, " . $user->getUsername($_SESSION['uid']));
+    $curr_user = new User();
+    if($curr_user->auth()){
+        echo("Здравствуйте, " . $curr_user->getUsername($_SESSION['uid']));
     }else{
         echo('<p><a href="login.php">Войти</a></p>');
     }
