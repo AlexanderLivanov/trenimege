@@ -3,6 +3,7 @@
 session_start();
 
 require_once('creds.php');
+
 date_default_timezone_set('Europe/Moscow');
 
 function dbConnect()
