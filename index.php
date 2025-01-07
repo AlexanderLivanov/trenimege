@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    require_once("heaader.php");
+    require_once("header.php");
     echo("hello");
     ?>
 </body>

@@ -1,8 +1,8 @@
 <?php
 
 class User {
-    $name = "";
-    $token = "";
+    public $name = "";
+    public $token = "";
 }
 
 ?>
