@@ -2,13 +2,13 @@
 <?php
 session_start();
 
+require_once('creds.php');
+
 date_default_timezone_set('Europe/Moscow');
 
 function dbConnect()
 {
-    $user = "root";
-    $passwd = "";
-    $db_name = "kege";
+    global $user, $passwd, $db_name;
     
     try {
         return new PDO('mysql:dbname=' . $db_name . ';host=localhost', $user, $passwd);
