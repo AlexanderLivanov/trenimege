@@ -52,7 +52,7 @@ if (!empty($_POST['register'])) {
             // allocStorage($username);
             // setDefaultAvatar($username);
             setcookie("AUTH_TOKEN", $token, strtotime('+30 days'));
-            echo ("<script>setTimeout(function () { window.location.href = 'login.php'; }, 1000);</script>");
+            echo ("<script>setTimeout(function () { window.location.href = 'login'; }, 1000);</script>");
         } else {
             echo ('<script>alert("Проверьте форму ещё раз");</script>');
         }
@@ -85,7 +85,7 @@ if (!empty($_POST['register'])) {
                 <input type="password" placeholder="Код для входа" name="passwd" pattern="[0-9]{4,}" required>
             </div>
             <button type="submit" name="register" value="register">Готово</button>
-            <p>Уже есть аккаунт? <a href="login.php" class="white-link">Войдите</a></p>
+            <p>Уже есть аккаунт? <a href="login" class="white-link">Войдите</a></p>
         </form>
     </div>
 </body>
