@@ -87,15 +87,15 @@ class User
         $query = $db_connect->prepare("SELECT * FROM users WHERE token='" . hash('sha256', $tokenHash) . "'");
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
-
+        // print_r($result);
         return $result['id'];
     }
 
     function auth()
     {
         global $uid;
-        if (!empty($_COOKIE['FW_AUTH_TOKEN'])) {
-            $_SESSION['uid'] = $this->findUserByToken($_COOKIE['FW_AUTH_TOKEN']);
+        if (!empty($_COOKIE['AUTH_TOKEN'])) {
+            $_SESSION['uid'] = $this->findUserByToken($_COOKIE['AUTH_TOKEN']);
             $uid = $_SESSION['uid'];
             return true;
         } else {

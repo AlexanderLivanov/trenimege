@@ -4,11 +4,16 @@
 require_once('system/db_config.php');
 require_once('system/header.php');
 
+if ($user->auth()) {
+    echo ("<script>setTimeout(function () { window.location.href = 'main.php'; });</script>");
+}
+
 if (!empty($_POST['register'])) {
 
     $connect = dbConnect();
 
     $username = $_POST['username'];
+    $_SESSION['username'] = $username;
     $passwd = $_POST['passwd'];
     $fi = $_POST['fi'];
     $local_datetime = getServerTime();
@@ -34,11 +39,11 @@ if (!empty($_POST['register'])) {
         echo ('<script>alert("Это имя пользователя занято. Придумайте другое");</script>');
     }
     if ($query->rowCount() == 0) {
-        $query = $connect->prepare("INSERT INTO users(username, token, data) VALUES 
-                                                    (:username, :passwd_hash, :json_data);");
+        $query = $connect->prepare("INSERT INTO users(username, passwd_hash, token, data) VALUES 
+                                                    (:username, :passwd_hash, :token_hash, :json_data);");
         $query->bindParam("username", $username, PDO::PARAM_STR);
         $query->bindParam("passwd_hash", $passwd_hash, PDO::PARAM_STR);
-        echo $json_data;
+        $query->bindParam("token_hash", $token_hash, PDO::PARAM_STR);
         $query->bindParam("json_data", $json_data, PDO::PARAM_STR);
         $result = $query->execute();
 

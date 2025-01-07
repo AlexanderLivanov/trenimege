@@ -4,6 +4,10 @@
 require_once('system/db_config.php');
 require_once('system/header.php');
 
+if ($user->auth()) {
+    echo ("<script>setTimeout(function () { window.location.href = 'main.php'; });</script>");
+}
+
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -14,14 +18,14 @@ if (isset($_POST['login'])) {
     if (!$result) {
         echo '<script>alert("Неправильный логин или пароль");</script>';
     } else {
-        if (password_verify($password, $result['passwd'])) {
+        if (password_verify($password, $result['passwd_hash'])) {
             $user_token = $username . $password;
             $token = hash('sha256', $user_token);
             $_SESSION['uid'] = $result['id'];
-            $query = $db_connect->prepare("UPDATE users SET ip='" . $_SERVER['REMOTE_ADDR'] . "' WHERE username='" . $result['username'] . "'");
+            // $query = $db_connect->prepare("UPDATE users SET ip='" . $_SERVER['REMOTE_ADDR'] . "' WHERE username='" . $result['username'] . "'");
             $query->execute();
-            setcookie("FW_AUTH_TOKEN", $token, strtotime('+30 days'));
-            header('Location: /');
+            setcookie("AUTH_TOKEN", $token, strtotime('+30 days'));
+            header('Location: /main.php');
             exit();
         } else {
             echo '<script>alert("Неправильный логин или пароль");</script>';
@@ -45,13 +49,13 @@ if (isset($_POST['login'])) {
         <h1>Вход в систему</h1>
         <form method="post" action="" name="signin-form">
             <div class="form-element">
-                <input type="text" name="username" pattern="[A-Za-z._-1234567890]{4,}" required placeholder="логин" />
+                <input type="text" name="username" pattern="[A-Za-z._-1234567890]{4,}" required placeholder="Имя пользователя" />
             </div>
             <div class="form-element">
-                <input type="password" name="password" required placeholder="пароль" />
+                <input type="password" name="password" required placeholder="Код для входа" />
             </div>
             <button type="submit" name="login" value="login">Войти</button>
-            <p>Ещё нет аккаунта? <a href="register.php" class="white-link">Зарегистрируйтесь</a></p>
+            <p>Ещё нет аккаунта? <a href="new.php" class="white-link">Зарегистрируйтесь</a></p>
         </form>
     </div>
 </body>
