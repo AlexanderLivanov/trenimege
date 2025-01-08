@@ -129,25 +129,30 @@
             <div class="block large">
                 <a class="inactive" href="#">
                     <h2>Решаем задачи из банка ФИПИ</h2>
-                    <p>Их там пиздец как много</p>
+                    <p>Решено задач:</p>
+                    <ul>
+                        <li>Лёгких - 0</li>
+                        <li>Средних - 0</li>
+                        <li>Трудных - 0</li>
+                    </ul>
                 </a>
             </div>
             <div class="block">
                 <a class="no-link" href="/minigames/formulas.php">
                     <h2>Повторяем формулы</h2>
-                    <p>Изучено формул: 0/дохуя</p>
+                    <p>Всего повторено: 0</p>
                 </a>
             </div>
             <div class="block">
                 <a class="inactive" href="#">
                     <h2>Пользовательские задачи</h2>
-                    <p>Для особо умных</p>
+                    <p>Всего задач добавлено: 0</p>
                 </a>
             </div>
             <div class="block large">
                 <a class="inactive" href="#">
                     <h2>Сгенерировать вариант ЕГЭ</h2>
-                    <p>Чтобы потратить 3 часа 55 минут своего времени</p>
+                    <p>Прорешать вариант полностью</p>
                 </a>
             </div>
 
