@@ -52,7 +52,7 @@ if (isset($_POST['login'])) {
                 <input type="text" name="username" pattern="[A-Za-z._-1234567890]{4,}" required placeholder="Имя пользователя" />
             </div>
             <div class="form-element">
-                <input type="password" name="password" required placeholder="Код для входа" />
+                <input type="password" name="password" required placeholder="Пароль" />
             </div>
             <button type="submit" name="login" value="login">Войти</button>
             <p>Ещё нет аккаунта? <a href="new.php" class="white-link">Зарегистрируйтесь</a></p>
