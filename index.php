@@ -12,6 +12,9 @@
     require_once('system/header.php');
     if (!$curr_user->auth()) {
         echo ("<script>setTimeout(function () { window.location.href = 'login'; });</script>");
+    }else{
+        echo ("<script>setTimeout(function () { window.location.href = 'main'; });</script>");
+
     }
     ?>
     <h1>
