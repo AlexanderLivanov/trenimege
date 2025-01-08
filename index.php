@@ -13,8 +13,7 @@
     if (!$curr_user->auth()) {
         echo ("<script>setTimeout(function () { window.location.href = 'login'; });</script>");
     }else{
-        echo ("<script>setTimeout(function () { window.location.href = 'main'; });</script>");
-
+        echo ("<script>setTimeout(function () { window.location.href = 'main.php'; });</script>");
     }
     ?>
     <h1>
