@@ -13,17 +13,17 @@ require_once("system/modules/userinteract.php");
     $curr_db = new Database();
     if ($curr_user->auth()) {
         echo ("Здравствуйте, " . $curr_user->getUsername($_SESSION['uid']));
-    } else {
-        echo ('<p><a href="login.php">Войти</a></p>');
+        $user = $curr_user->getDataByID($_SESSION['uid']);
+        $user_data = json_decode($user['data'], true);
+
+        echo('<div>
+        <span class="material-icons">star</span>Звёздочки:' . $user_data['rating'] .
+        '<br>
+        <span class="material-icons">score</span>Общий счёт:' . $user_data['totalscore'] .
+        '</div>');
+    }else{
+        echo("Необходимо войти или зарегистрироваться");
     }
 
-    $user = $curr_user->getDataByID($_SESSION['uid']);
-    $user_data = json_decode($user['data'], true);
-
     ?>
-    <div>
-        <span class="material-icons">star</span>Звёздочки: <?= $user_data['rating'] ?>
-        <br>
-        <span class="material-icons">score</span>Общий счёт: <?= $user_data['totalscore'] ?>
-        </divc>
 </header>
