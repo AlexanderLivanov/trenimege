@@ -5,7 +5,7 @@ require_once("system/modules/userinteract.php");
 
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <header>
     <h1>Треним.ЕГЭ</h1>
@@ -29,22 +29,3 @@ require_once("system/modules/userinteract.php");
     ?>
 </header>
 
-<body>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
-                    // Registration was successful
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
-                    // registration failed :(
-                    console.log('ServiceWorker registration failed: ', err);
-                }).catch(function(err) {
-                    console.log(err)
-                });
-            });
-        } else {
-            console.log('service worker is not supported');
-        }
-    </script>
-</body>
