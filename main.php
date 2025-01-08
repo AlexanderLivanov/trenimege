@@ -85,14 +85,14 @@
         }
 
         .leaderboard .even {
-            background-color:rgb(244, 242, 242);
+            background-color: rgb(244, 242, 242);
         }
 
         .leaderboard th {
             background-color: #e0e0e0;
         }
 
-        
+
         footer {
             justify-content: center;
         }
@@ -103,6 +103,16 @@
 
         footer p {
             margin: 0;
+        }
+
+        .no-link {
+            color: black;
+            text-decoration: none;
+        }
+
+        .inactive {
+            text-decoration: none;
+            color: grey;
         }
     </style>
 </head>
@@ -117,20 +127,28 @@
     <div class="content">
         <div class="main-content">
             <div class="block large">
-                <h2>Решаем задачи из банка ФИПИ</h2>
-                <p>Их там пиздец как много</p>
+                <a class="inactive" href="#">
+                    <h2>Решаем задачи из банка ФИПИ</h2>
+                    <p>Их там пиздец как много</p>
+                </a>
             </div>
             <div class="block">
-                <h2>Повторяем формулы</h2>
-                <p>Изучено формул: 0/дохуя</p>
+                <a class="no-link" href="/minigames/formulas.php">
+                    <h2>Повторяем формулы</h2>
+                    <p>Изучено формул: 0/дохуя</p>
+                </a>
             </div>
             <div class="block">
-                <h2>Пользовательские задачи</h2>
-                <p>Для особо умных</p>
+                <a class="inactive" href="#">
+                    <h2>Пользовательские задачи</h2>
+                    <p>Для особо умных</p>
+                </a>
             </div>
             <div class="block large">
-                <h2>Сгенерировать вариант ЕГЭ</h2>
-                <p>Чтобы потратить 3 часа 55 минут своего времени</p>
+                <a class="inactive" href="#">
+                    <h2>Сгенерировать вариант ЕГЭ</h2>
+                    <p>Чтобы потратить 3 часа 55 минут своего времени</p>
+                </a>
             </div>
 
         </div>
