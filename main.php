@@ -62,7 +62,7 @@
         }
 
         .leaderboard {
-            width: 250px;
+            width: 350px;
             margin-left: 15px;
             background-color: white;
             padding: 15px;
@@ -74,6 +74,25 @@
             margin: 0 0 10px 0;
         }
 
+        .leaderboard th,
+        .leaderboard td {
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .leaderboard .odd {
+            background-color: white;
+        }
+
+        .leaderboard .even {
+            background-color:rgb(244, 242, 242);
+        }
+
+        .leaderboard th {
+            background-color: #e0e0e0;
+        }
+
+        
         footer {
             justify-content: center;
         }
@@ -116,16 +135,45 @@
 
         </div>
         <div class="leaderboard">
-            <h3>Лидерборд</h3>
-            <?php
-                $all_users = $curr_db->fetchAllData("users");
-                print_r($all_users['username']);
-            ?>
+            <h3>Лидерборд (ТОП-15)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Ник</th>
+                        <th>ФИ</th>
+                        <th>Рейтинг</th>
+                        <th>Общий счёт</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $all_users = $curr_db->fetchAllData("users");
+                    $counter = 0;
+                    foreach ($all_users as $user) {
+                        $user_data = json_decode($user['data'], true);
+                        if ($counter < 15) {
+                            $counter++;
+                            $class = ($counter % 2 == 0) ? 'even' : 'odd';
+                            echo ("
+                            <tr class=\"$class\">
+                                <td>" . $counter . "</td>
+                                <td>" . $user['username'] . "</td>
+                                <td>" . $user_data['fi'] . "</td>
+                                <td>" . $user_data['rating'] . "</td>
+                                <td>" . $user_data['totalscore'] . "</td>
+                            </tr>");
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <footer>
-        <p>2021 - 2025 (c) <a style="color: white;" href="https://github.com/AlexanderLivanov">Alexander Livanov</a><p>
+        <p>2021 - 2025 (c) <a style="color: white;" href="https://github.com/AlexanderLivanov">Alexander Livanov</a>
+        <p>
     </footer>
 
 </body>

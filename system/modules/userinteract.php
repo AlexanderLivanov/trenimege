@@ -8,7 +8,7 @@ class Database
         global $db_connect;
         $query = $db_connect->prepare("SELECT * FROM $db_name");
         $query->execute();
-        $result = $query->fetch(PDO::FETCH_ASSOC);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
         return $result;
     }

@@ -82,7 +82,7 @@ if (!empty($_POST['register'])) {
                 <input type="text" placeholder="Имя пользователя" name="username" pattern="[A-Za-z._-1234567890]{4,}" required>
             </div>
             <div class="form-element">
-                <input type="password" placeholder="Код для входа" name="passwd" pattern="[0-9]{4,}" required>
+                <input type="password" placeholder="Код для входа" name="passwd" required>
             </div>
             <button type="submit" name="register" value="register">Готово</button>
             <p>Уже есть аккаунт? <a href="login.php" class="white-link">Войдите</a></p>
