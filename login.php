@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
             // $query = $db_connect->prepare("UPDATE users SET ip='" . $_SERVER['REMOTE_ADDR'] . "' WHERE username='" . $result['username'] . "'");
             $query->execute();
             setcookie("AUTH_TOKEN", $token, strtotime('+30 days'));
-            header('Location: /main');
+            header('Location: /main.php');
             exit();
         } else {
             echo '<script>alert("Неправильный логин или пароль");</script>';
@@ -55,7 +55,7 @@ if (isset($_POST['login'])) {
                 <input type="password" name="password" required placeholder="Код для входа" />
             </div>
             <button type="submit" name="login" value="login">Войти</button>
-            <p>Ещё нет аккаунта? <a href="new" class="white-link">Зарегистрируйтесь</a></p>
+            <p>Ещё нет аккаунта? <a href="new.php" class="white-link">Зарегистрируйтесь</a></p>
         </form>
     </div>
 </body>

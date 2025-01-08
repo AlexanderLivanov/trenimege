@@ -92,7 +92,7 @@
     <?php
     require_once('system/header.php');
     if (!$curr_user->auth()) {
-        echo ("<script>setTimeout(function () { window.location.href = 'login'; });</script>");
+        echo ("<script>setTimeout(function () { window.location.href = 'login.php'; });</script>");
     }
     ?>
     <div class="content">
