@@ -16,7 +16,7 @@ class Database
 
 class User
 {
-    private function getDataByID($id)
+    public function getDataByID($id)
     {
         global $db_connect;
         $query = $db_connect->prepare("SELECT * FROM users WHERE id=" . $id);
