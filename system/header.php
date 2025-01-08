@@ -10,6 +10,7 @@ require_once("system/modules/userinteract.php");
     <h1>Треним.ЕГЭ</h1>
     <?php
     $curr_user = new User();
+    $curr_db = new Database();
     if ($curr_user->auth()) {
         echo ("Здравствуйте, " . $curr_user->getUsername($_SESSION['uid']));
     } else {

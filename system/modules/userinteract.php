@@ -1,6 +1,19 @@
 <?php
 // 07.01.2025 (c) Alexander Livanov
 
+class Database
+{
+    function fetchAllData($db_name)
+    {
+        global $db_connect;
+        $query = $db_connect->prepare("SELECT * FROM $db_name");
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+}
+
 class User
 {
     private function getDataByID($id)

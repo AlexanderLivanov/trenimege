@@ -117,16 +117,10 @@
         </div>
         <div class="leaderboard">
             <h3>Лидерборд</h3>
-            <p>Я - 1337</p>
-            <p>Я - 1337</p>
-            <p>Я - 1337</p>
-            <p>Я - 1337</p>
-            <p>Я - 1337</p>
-            <p>Я - 1337</p>
-            <p>Я - 1337</p>
-            <p>Я - 1337</p>
-            <p>Я - 1337</p>
-            <p>Я - 1337</p>
+            <?php
+                $all_users = $curr_db->fetchAllData("users");
+                print_r($all_users['username']);
+            ?>
         </div>
     </div>
 
