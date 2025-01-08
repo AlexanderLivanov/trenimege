@@ -5,6 +5,7 @@ require_once("system/modules/userinteract.php");
 
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="manifest" href="manifest.json" />
 </head>
 <header>
     <h1>Треним.ЕГЭ</h1>
@@ -16,13 +17,13 @@ require_once("system/modules/userinteract.php");
         $user = $curr_user->getDataByID($_SESSION['uid']);
         $user_data = json_decode($user['data'], true);
 
-        echo('<div>
+        echo ('<div>
         <span class="material-icons">star</span>Звёздочки:' . $user_data['rating'] .
-        '<br>
+            '<br>
         <span class="material-icons">score</span>Общий счёт:' . $user_data['totalscore'] .
-        '</div>');
-    }else{
-        echo("Необходимо войти или зарегистрироваться");
+            '</div>');
+    } else {
+        echo ("Необходимо войти или зарегистрироваться");
     }
 
     ?>
