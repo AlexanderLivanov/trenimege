@@ -18,9 +18,9 @@ require_once("system/modules/userinteract.php");
         $user_data = json_decode($user['data'], true);
 
         echo ('<div>
-        <span class="material-icons">star</span>Звёздочки:' . $user_data['rating'] .
+        <span class="material-icons">star</span> Звёздочки: ' . $user_data['rating'] .
             '<br>
-        <span class="material-icons">score</span>Общий счёт:' . $user_data['totalscore'] .
+        <span class="material-icons">score</span> Общий счёт: ' . $user_data['totalscore'] .
             '</div>');
     } else {
         echo ("Необходимо войти или зарегистрироваться");

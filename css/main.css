@@ -74,3 +74,117 @@
     color: gray;
     font-family: cursive;
 }
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+header,
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #6200ea;
+    color: white;
+}
+
+header .logo,
+footer .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+}
+
+.content {
+    display: flex;
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 15px;
+    flex: 1;
+}
+
+.block {
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.block:hover {
+    transform: scale(1.05);
+}
+
+.block.large {
+    grid-column: span 2;
+}
+
+.leaderboard {
+    width: 350px;
+    margin-left: 15px;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.leaderboard h3 {
+    margin: 0 0 10px 0;
+}
+
+.leaderboard th,
+.leaderboard td {
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.leaderboard .odd {
+    background-color: white;
+}
+
+.leaderboard .even {
+    background-color: rgb(244, 242, 242);
+}
+
+.leaderboard th {
+    background-color: #e0e0e0;
+}
+
+
+footer {
+    justify-content: center;
+}
+
+footer .logo {
+    display: none;
+}
+
+footer p {
+    margin: 0;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+}
+
+.block.active:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.inactive {
+    text-decoration: none;
+    color: grey;
+}
