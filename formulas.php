@@ -31,8 +31,16 @@
     echo("<pre>");
     $keys = array_rand($f_arr, min($difficulty, count($f_arr)));
     foreach ((array)$keys as $key) {
-        print_r($f_arr[$key]);
+        $choice = array_rand(['True', 'False', 'True', 'False', 'False']);
+        if ($choice == 1 or $choice == 3) {
+            print_r($f_arr[$key]->formula_text); 
+            // print_r($f->changeF($difficulty));
+        } else {
+            print_r($f_arr[$key]->formula_text); 
+        }
     }
+
+
 
     echo("</pre>");
     fclose($file);
