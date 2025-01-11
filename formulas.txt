@@ -62,8 +62,8 @@
 ЭДС (2): \epsilon = \frac{BScos \alpha }{\Delta t}
 ЭДС (3): \epsilon = Bvl
 ЭДС самоиндукции: \epsilon_{si} = L \frac{ \Delta I }{ \Delta t }
-Магнитный поток (1): Ф = BScos \alpha
-Магнитный поток (2): Ф = LI
+Магнитный поток (1): \Phi = BScos \alpha
+Магнитный поток (2): \Phi = LI
 Энергия конденсатора (1): W_c = \frac{CU^2}{2}
 Энергия конденсатора (2): W_c = \frac{q^2}{2C}
 Энергия конденсатора (3): W_c = \frac{qU}{2}

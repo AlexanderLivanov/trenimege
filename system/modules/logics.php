@@ -19,7 +19,7 @@ class Formula {
 function changeF($formula_text, $difficulty)
 {
     $formula_parts = explode(" ", $formula_text);
-
+    print_r($formula_parts);
     $result = implode(" ", $formula_parts);
     return $result;
 }

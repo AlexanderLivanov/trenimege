@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Повтрояем формулы</title>
     <link rel="stylesheet" href="css/main.css">
+    <!-- <script src="js/latex.js"></script> -->
 </head>
 
 <body>
@@ -33,13 +34,15 @@
     echo ("<pre>");
     $keys = array_rand($f_arr, min($difficulty, count($f_arr)));
     foreach ((array)$keys as $key) {
-        array_push($questions, $f_arr[$key]->formula_text);
         $choice = array_rand(['True', 'False', 'False', 'False', 'False']);
         if ($choice == 1) {
+            $result = changeF($f_arr[$key]->formula_text, $difficulty);
+            array_push($questions, [$f_arr[$key]->formula_name, $result]);
             array_push($correct_answers, "no");
             // echo ($f_arr[$key]->formula_text . " Changed<br><br>");
             // print_r($f->changeF($difficulty));
         } else {
+            array_push($questions, [$f_arr[$key]->formula_name, $f_arr[$key]->formula_text]);
             // echo ($f_arr[$key]->formula_text . " NotChanged <br><br>");
             array_push($correct_answers, "yes");
         }
@@ -97,9 +100,12 @@
 
 <body>
     <form id="quiz-form" style="text-align: center;">
+        <h1>Тест на знание формул</h1>
+        <h3>Правильная ли формула?</h3>
         <?php foreach ($questions as $index => $question): ?>
             <div>
-                <p><?php echo('<img src="http://latex.codecogs.com/svg.latex?' . $question . '" border="1" style="padding: .5em;" />') ?></p>
+                <p><?php echo $question[0] ?></p>
+                <p><?php echo('<img src="http://latex.codecogs.com/svg.latex?' . $question[1] . '" border="1" style="padding: .5em;" />') ?></p>
                 <label>
                     <input type="radio" name="question<?= $index ?>" value="yes" data-index="<?= $index ?>" data-correct="<?= $correct_answers[$index] ?>">
                     Да
