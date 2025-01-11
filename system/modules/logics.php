@@ -14,11 +14,14 @@ class Formula {
     public function getF(){
         return [$this->formula_name, $this->formula_text, $this->formula_diff_coef];
     }
+}
 
-    public function changeF($difficulty){
-        $formula_parts = explode(" ", $this->formula_text);
-        return $formula_parts;
-    }
+function changeF($formula_text, $difficulty)
+{
+    $formula_parts = explode(" ", $formula_text);
+
+    $result = implode(" ", $formula_parts);
+    return $result;
 }
 
 ?>

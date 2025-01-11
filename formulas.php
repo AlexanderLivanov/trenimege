@@ -6,35 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Повтрояем формулы</title>
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        function changeF(formula) {
-            return formula + " + изменено";
-        }
-
-        $(document).ready(function() {
-            let correctCount = 0;
-
-            $('input[type=radio]').on('change', function() {
-                const questionIndex = $(this).data('index');
-                const selectedValue = $(this).val();
-                const correctAnswer = $(this).data('correct');
-                const originalFormula = <?= json_encode($questions) ?>[questionIndex];
-                const modifiedFormula = changeF(originalFormula);
-
-                if (selectedValue === correctAnswer) {
-                    $('#result-' + questionIndex).text('Правильно!').css('color', 'green');
-                    correctCount++;
-                } else if (selectedValue === 'yes' && modifiedFormula !== originalFormula) {
-                    $('#result-' + questionIndex).text('Неправильно!').css('color', 'red');
-                } else {
-                    $('#result-' + questionIndex).text('Неправильно!').css('color', 'red');
-                }
-                $('input[name="question' + questionIndex + '"]').attr('disabled', true);
-                $('#score').text('Правильных ответов: ' + correctCount);
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -78,12 +49,57 @@
     fclose($file);
     // print_r($correct_answers);
     ?>
-    <h3 id="score">Правильных ответов: 0</h3>
 
+    <?php
+    require_once('system/footer.php');
+    ?>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест с формулами</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function changeF(formula) {
+            return formula + " + изменено";
+        }
+
+        $(document).ready(function() {
+            let correctCount = 0;
+
+            $('input[type=radio]').on('change', function() {
+                const questionIndex = $(this).data('index');
+                const selectedValue = $(this).val();
+                const correctAnswer = $(this).data('correct');
+                const originalFormula = <?= json_encode($questions) ?>[questionIndex];
+                const modifiedFormula = changeF(originalFormula);
+
+                if (selectedValue === correctAnswer) {
+                    $('#result-' + questionIndex).text('Правильно!').css('color', 'green');
+                    correctCount++;
+                } else if (selectedValue === 'yes' && modifiedFormula !== originalFormula) {
+                    $('#result-' + questionIndex).text('Неправильно!').css('color', 'red');
+                } else {
+                    $('#result-' + questionIndex).text('Неправильно!').css('color', 'red');
+                }
+                $('input[name="question' + questionIndex + '"]').attr('disabled', true);
+                $('#score').text('Правильных ответов: ' + correctCount);
+            });
+        });
+    </script>
+</head>
+
+<body>
     <form id="quiz-form" style="text-align: center;">
         <?php foreach ($questions as $index => $question): ?>
             <div>
-                <p><?php echo ('<img src="http://latex.codecogs.com/svg.latex?' . $question . '" border="1" style="padding: .5em;" />') ?></p>
+                <p><?php echo('<img src="http://latex.codecogs.com/svg.latex?' . $question . '" border="1" style="padding: .5em;" />') ?></p>
                 <label>
                     <input type="radio" name="question<?= $index ?>" value="yes" data-index="<?= $index ?>" data-correct="<?= $correct_answers[$index] ?>">
                     Да
@@ -100,9 +116,6 @@
 
     <h3 id="score">Правильных ответов: 0</h3>
 
-    <?php
-    require_once('system/footer.php');
-    ?>
 </body>
 
 </html>
