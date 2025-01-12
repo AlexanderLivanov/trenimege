@@ -17,16 +17,14 @@
     ?>
     <div class="content">
         <div class="main-content">
-            <div class="block large">
-                <a class="inactive" href="#">
-                    <h2>Решаем задачи из банка ФИПИ</h2>
-                    <p>Решено задач:</p>
-                    <ul>
-                        <li>Лёгких - 0</li>
-                        <li>Средних - 0</li>
-                        <li>Трудных - 0</li>
-                    </ul>
-                </a>
+            <div class="block large active" onclick="window.open('/tasks.php', '_self')">
+                <h2>Решаем задачи из банка ФИПИ</h2>
+                <p>Решено задач:</p>
+                <ul>
+                    <li>Лёгких - 0</li>
+                    <li>Средних - 0</li>
+                    <li>Трудных - 0</li>
+                </ul>
             </div>
             <div class="block active" onclick="window.open('/formulas.php', '_self')">
                 <h2>Повторяем формулы</h2>
